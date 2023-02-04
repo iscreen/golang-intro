@@ -1,0 +1,9 @@
+Golang Interface
+234 Feb 2023
+
+Dean Lin
+chienkuei@gmail.com
+
+*  What's interface
+In Go, an interface is a set of method signatures. When a type provides definition for all the methods in the interface, it is said to implement the interface
+
