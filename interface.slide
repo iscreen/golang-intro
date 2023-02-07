@@ -1,11 +1,113 @@
-Golang Interface
-4 Feb 2023
+# Golang Interface
 
 Dean Lin
-chienkuei@gmail.com
+9 Feb 2023
+chienkueilin@gmail.com
 
-*  What's interface
-**In Go, an interface is a set of method signatures. When a type provides definition for all the methods in the interface, it is said to implement the interface**
 
-* Sample Code
-.code -edit interface/sample1.go
+## WHAT IS AN INTERFACE
+
+**a set of method signatures that a type can implement**
+
+.background images/bg.jpg
+
+## WHAT IS TYPE
+
+.image images/go-types.png _ 900
+
+.background images/bg.jpg
+
+## WHAT IS TYPE
+
+- **Primitive**
+
+  `var Short uint16`
+
+- **Slice**
+
+  `var people []string`
+
+- **Struct**
+
+  `type IronMan struct {}`
+
+  ...
+
+.background images/bg.jpg
+
+## Declaring and implementing an interface
+
+<br/><br/><br/>
+
+```go
+  type [name] interface {
+    Method1()
+    Method2()
+  }
+```
+
+.background images/bg.jpg
+
+## Declaring and implementing an interface
+
+.code ch18-interface/people.go /^// START People/,/^}/ HL12
+
+.background images/bg.jpg
+
+## Declaring and implementing an interface
+
+.code ch18-interface/ex1/main.go /^// START Donald/,/^// END Donald/
+
+.code ch18-interface/ex1/main.go /^// START Donald Method/,/^// END Donald Method/ HL12
+
+.play ch18-interface/ex1/main.go /^func main/,/^}/
+
+.background images/bg.jpg
+
+## Why use Go interface
+
+Defines an object or type by **_WHAT IT CAN_** DO instead of what it actually is
+
+.background images/bg.jpg
+
+## Why use Go interface
+
+.code ch18-interface/ex3/main.go /^// START Duck/,/^// END Duck/
+
+## Why use Go interface
+
+.code ch18-interface/ex2/main.go /^// START IronMan/,/^// END IronMan/
+
+.code ch18-interface/ex2/main.go /^// START IronMan Method/,/^// END IronMan Method/ HL12
+
+.play ch18-interface/ex2/main.go /^func main/,/^}/
+
+.background images/bg.jpg
+
+## Why use Go interface
+
+.code ch18-interface/ex3/main.go /^// START behaveLikeDuck/,/^// END behaveLikeDuck/
+
+.background images/bg.jpg
+
+## Why use Go interface
+
+.play ch18-interface/ex3/main.go /^func main/,/^}/
+
+.background images/bg.jpg
+
+## Why use Go interface
+
+.image images/interface-inherent.png
+
+.background images/bg.jpg
+
+## Interface
+
+.link https://golang.org/doc/faq#Functions_methods Why do T and *T have different method sets?
+
+.background images/bg.jpg
+
+## 為什麼 Pointer Receiver 不能使用 Value Type 賦值給 Interface Value
+
+https://mileslin.github.io/2020/08/Golang/%E7%82%BA%E4%BB%80%E9%BA%BC-Pointer-Receiver-%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8-Value-Type-%E8%B3%A6%E5%80%BC%E7%B5%A6-Interface-Value/
