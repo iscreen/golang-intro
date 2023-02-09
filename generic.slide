@@ -1,0 +1,80 @@
+# Golang Generics
+
+Dean Lin
+9 Feb 2023
+chienkueilin@gmail.com
+
+## WHAT IS Generics
+
+**With generics, you can declare and use functions or types that are written to work with any of a set of types provided by calling code.**
+
+.background images/bg.jpg
+
+## Alternative strategy
+
+- interface
+- empty interface
+
+.background images/bg.jpg
+
+## Alternative strategy - Interface
+
+.code generics/ex1/main.go /^// START Interface/,/^// END Interface/ HL12
+
+.background images/bg.jpg
+
+## Alternative strategy - Interface
+
+.play generics/ex1/main.go /^func main/,/^}/ HL12
+
+.background images/bg.jpg
+
+## Alternative strategy - Interface
+
+.code generics/ex2/main.go /^// START Interface/,/^// END Interface/ HL12
+
+.background images/bg.jpg
+
+## Alternative strategy - Interface
+
+.code generics/ex2/main.go /^// START Sort/,/^// END Sort/ HL12
+
+.background images/bg.jpg
+
+## Generics
+
+.code generics/ex3/main.go /^// START NewSort/,/^// END NewSort/ HL12
+
+.background images/bg.jpg
+
+## Generics
+
+.play generics/ex3/main.go /^func main/,/^}/ HL12
+
+.background images/bg.jpg
+
+## Generics - Multiple Type
+
+.code generics/ex4/main.go /^// START NewSort/,/^// END NewSort/ HL12
+
+.background images/bg.jpg
+
+## Generics - Multiple Type
+
+.play generics/ex4/main.go /^func main/,/^}/ HL12
+
+.background images/bg.jpg
+
+## Generics - Multiple Type
+
+.code generics/ex5/main.go /^// START SortData/,/^// END SortData/ HL12
+
+.code generics/ex5/main.go /^// START NewSort/,/^// END NewSort/ HL12
+
+.background images/bg.jpg
+
+## Generics - Multiple Type
+
+.play generics/ex5/main.go /^func main/,/^}/ HL12
+
+.background images/bg.jpg

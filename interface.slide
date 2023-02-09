@@ -7,7 +7,7 @@ chienkueilin@gmail.com
 
 ## WHAT IS AN INTERFACE
 
-**a set of method signatures that a type can implement**
+**A set of method signatures that a type can implement**
 
 .background images/bg.jpg
 
@@ -66,7 +66,10 @@ chienkueilin@gmail.com
 
 ## Why use Go interface
 
-Defines an object or type by **_WHAT IT CAN_** DO instead of what it actually is
+Defines an object or type by **_WHAT IT CAN DO_** instead of what it actually is
+
+<br/>
+<h3>只在乎你會什麼？不管你是誰</h3>
 
 .background images/bg.jpg
 
@@ -102,12 +105,222 @@ Defines an object or type by **_WHAT IT CAN_** DO instead of what it actually is
 
 .background images/bg.jpg
 
-## Interface
+## Empty interface
+
+**An interface that has zero methods is called an empty interface**
+
+  interface {}
+
+<br/>
+<b>Empty Interface 就像容器</b>
+
+.background images/bg.jpg
+
+## Empty interface
+
+.code ch18-interface/ex4/main.go /^// START Empty Interface/,/^// END Empty Interface/ HL12
+
+.play ch18-interface/ex4/main.go /^func main/,/^}/
+
+.background images/bg.jpg
+
+## Type assertion
+
+Type assertion is used to extract the underlying value of the interface.
+
+**i.(T)** is the syntax which is used to get the underlying value of interface i whose concrete type is T.
+
+.background images/bg.jpg
+
+## Type assertion
+
+.code ch18-interface/ex5/main.go /^// START assertion/,/^// END assertion/ HL12
+
+.play ch18-interface/ex5/main.go /^func main/,/^}/
+
+.background images/bg.jpg
+
+## Zero value of Interface
+
+**Default or zero value of an interface is nil**
+
+.play ch18-interface/ex6/main.go  HL12
+
+.background images/bg.jpg
+
+## Implementing interfaces using pointer receivers vs value receivers
+
+- Value type
+
+.play ch18-interface/ex7/main.go HL12
+
+.background images/bg.jpg
+
+## Implementing interfaces using pointer receivers vs value receivers
+
+- Pointer type
+
+.play ch18-interface/ex8/main.go HL12
+
+.background images/bg.jpg
+
+## Implementing interfaces using pointer receivers vs value receivers
+
+**Use value as method receiver**
+
+- Value Receiver
+
+.code ch18-interface/ex9/main.go /^// START Value Receiver/,/^// END Value Receiver/ HL12
+
+.play ch18-interface/ex9/main.go /^func main/,/^}/
+
+.background images/bg.jpg
+
+## Implementing interfaces using pointer receivers vs value receivers
+
+**Use value as method receiver**
+
+- Pointer Receiver
+
+.code ch18-interface/ex10/main.go /^// START Pointer Receiver/,/^// END Pointer Receiver/ HL12
+
+.play -edit ch18-interface/ex10/main.go /^func main/,/^}/
+
+.background images/bg.jpg
+
+## Implementing interfaces using pointer receivers vs value receivers
+
+- Describer Interface
+
+.code ch18-interface/ex11/main.go /^// START Describer/,/^// END Describer/ HL12
+
+- Person Struct Type
+
+.code -numbers ch18-interface/ex11/main.go /^// START Person/,/^// END Person/ HL12
+
+.background images/bg.jpg
+
+## Implementing interfaces using pointer receivers vs value receivers
+
+- Address Struct Type
+
+.code -numbers ch18-interface/ex11/main.go /^// START Address/,/^// END Address/ HL12
+
+.background images/bg.jpg
+
+## Implementing interfaces using pointer receivers vs value receivers
+
+.play -numbers -edit ch18-interface/ex11/main.go /^func main/,/^}/ HL12
+
+.background images/bg.jpg
+
+## Why Pointer Receiver can't assign Value Type to Interface Value
+
+.link https://mileslin.github.io/2020/08/Golang/%E7%82%BA%E4%BB%80%E9%BA%BC-Pointer-Receiver-%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8-Value-Type-%E8%B3%A6%E5%80%BC%E7%B5%A6-Interface-Value/ 為什麼 Pointer Receiver 不能使用 Value Type 賦值給 Interface Value
 
 .link https://golang.org/doc/faq#Functions_methods Why do T and *T have different method sets?
 
 .background images/bg.jpg
 
-## 為什麼 Pointer Receiver 不能使用 Value Type 賦值給 Interface Value
+## Method sets
 
-https://mileslin.github.io/2020/08/Golang/%E7%82%BA%E4%BB%80%E9%BA%BC-Pointer-Receiver-%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8-Value-Type-%E8%B3%A6%E5%80%BC%E7%B5%A6-Interface-Value/
+* The method set of a defined type T consists of all methods declared with receiver type T.
+* The method set of a pointer to a defined type T (where T is neither a pointer nor an interface) is the set of all methods declared with receiver *T or T.
+* The method set of an interface type is the intersection of the method sets of each type in the interface's type set (the resulting method set is usually just the set of declared methods in the interface).
+
+.link https://go.dev/ref/spec#Method_sets Method sets
+
+.background images/bg.jpg
+
+## How is interface operation mechanism
+
+- Value Type
+
+.image images/interface-value-type.jpeg
+
+.background images/bg.jpg
+
+## How is interface operation mechanism
+
+- Pointer Type
+
+.image images/interface-pointer.jpeg
+
+.background images/bg.jpg
+
+## Why do T and *T have different method sets?
+
+<br/><br/>
+<b>
+As the [Go specification](https://go.dev/ref/spec#Types) says, the method set of a type T consists of all methods with receiver type T, while that of the corresponding pointer type *T consists of all methods with receiver *T or T. That means the method set of *T includes that of T, but not the reverse.**
+</b>
+
+.background images/bg.jpg
+
+## Implementing multiple interfaces
+
+- animal interface
+
+.code ch18-interface/ex12/main.go /^// START animal/,/^// END animal/ HL12
+
+- mammal interface
+
+.code ch18-interface/ex12/main.go /^// START mammal/,/^// END mammal/ HL12
+
+.background images/bg.jpg
+
+## Implementing multiple interfaces
+
+- lion methods
+
+.code ch18-interface/ex12/main.go /^// START lion methods/,/^// END lion methods/ HL12
+
+.background images/bg.jpg
+
+## Implementing multiple interfaces
+
+<br/>
+
+.play -edit ch18-interface/ex12/main.go /^func main/,/^}/ HL12
+
+.background images/bg.jpg
+
+## Embedding interface in another interface
+
+- animal interface
+
+.code ch18-interface/ex13/main.go /^// START animal/,/^// END animal/ HL12
+
+- human interface
+
+.code ch18-interface/ex13/main.go /^// START human/,/^// END human/ HL12
+
+.background images/bg.jpg
+
+## Embedding interface in another interface
+
+- staff struct
+
+.code ch18-interface/ex13/main.go /^// START staff/,/^// END staff/ HL12
+
+.background images/bg.jpg
+
+## Embedding interface in another interface
+
+<br/>
+
+.play -edit ch18-interface/ex13/main.go /^func main/,/^}/ HL12
+
+.background images/bg.jpg
+
+
+## Embedding interface in another interface
+
+The ReaderWriter interface of the io package of golang **ReaderWriter** embeds two other interfaces
+
+- [ReadWriter interface](https://pkg.go.dev/io#ReadWriter)
+  - [Reader interface](https://pkg.go.dev/io#Reader)
+  - [Writer interface](https://pkg.go.dev/io#Writer)
+
+
+.background images/bg.jpg
